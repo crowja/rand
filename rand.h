@@ -1,7 +1,7 @@
 /**
  *  @file rand.h
  *  @version 0.1.0-dev0
- *  @date Wed Dec  4 09:19:37 CST 2019
+ *  @date Wed Dec  4 09:32:46 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
  *  @details FIXME

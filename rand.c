@@ -1,7 +1,7 @@
 /**
  *  @file rand.c
  *  @version 0.1.0-dev0
- *  @date Wed Dec  4 09:19:37 CST 2019
+ *  @date Wed Dec  4 09:32:46 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
  *  @details FIXME
@@ -174,7 +174,8 @@ rand_normal(struct rand *p)
     *  Implementation of the Kinderman-Ramage normal pseudorandom variate
     *  generator with corrections made by Tirler, Dalgaard, Hormann, and
     *  Leydold in "An error in the Kinderman-Ramage method and how to fix
-    *  it."
+    *  it," Computational Statistics & Data Analysis 47 (2004), issue 3, 
+    *  pp 433-440.
     */
 
    double      t, u, v, w, z;
