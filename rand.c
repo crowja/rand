@@ -1,6 +1,6 @@
 /**
  *  @file rand.c
- *  @version 0.0.0
+ *  @version 0.1.0-dev0
  *  @date Thu Nov  1 10:02:09 CDT 2018
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
@@ -134,7 +134,7 @@ rand_free(struct rand *p)
 const char *
 rand_version(void)
 {
-   return "0.0.0";
+   return "0.1.0-dev0";
 }
 
 
