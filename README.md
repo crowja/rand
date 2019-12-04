@@ -1,2 +1,2 @@
 # rand
-Pseudorandom number generators.
+
