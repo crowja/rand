@@ -60,7 +60,7 @@ echeck: rand.o
 	  && ( LD_PRELOAD=libefence.so ./t/a.out ); \
 	done 
 
-indent:
+indent: stamp
 	@indent $(INDENT_FLAGS) rand.c
 	@indent $(INDENT_FLAGS) rand.h
 	@indent $(INDENT_FLAGS) t/test.c
