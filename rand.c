@@ -96,8 +96,6 @@ _normal_f(double t)
    return _normal_psi(t) - 0.180025191068563e-00 * _MAX2(_normal_xi - fabs(t), 0);
 }
 
-/*** rand_new() ***/
-
 struct rand *
 rand_new(void)
 {
@@ -119,26 +117,18 @@ rand_new(void)
    return tp;
 }
 
-
-/*** rand_free() ***/
-
 void
-rand_free(struct rand *p)
+rand_free(struct rand **pp)
 {
-   _FREE(p);
+   _FREE(*pp);
+   *pp = NULL;
 }
-
-
-/*** rand_version() ***/
 
 const char *
 rand_version(void)
 {
    return "0.1.0-dev0";
 }
-
-
-/*** rand_init() ***/
 
 void
 rand_init(struct rand *p, unsigned long w, unsigned long x, unsigned long y,
@@ -149,8 +139,6 @@ rand_init(struct rand *p, unsigned long w, unsigned long x, unsigned long y,
    p->y = y;
    p->z = z;
 }
-
-/*** rand_initr() ***/
 
 void
 rand_initr(struct rand *p)
@@ -164,8 +152,6 @@ rand_initr(struct rand *p)
    for (i = 0; i < _WARM; i++)
       rand_ulong(p);
 }
-
-/*** rand_normal() ***/
 
 double
 rand_normal(struct rand *p)
@@ -245,15 +231,11 @@ rand_normal(struct rand *p)
    }
 }
 
-/*** rand_ulong() ***/
-
 unsigned long
 rand_ulong(struct rand *p)
 {
    return _xor128(p);
 }
-
-/*** rand_uniform() ***/
 
 double
 rand_uniform(struct rand *p)

@@ -29,7 +29,7 @@ struct rand *rand_new(void);
  *  @details FIXME longer description here ...
  */
 
-void        rand_free(struct rand *p);
+void        rand_free(struct rand **pp);
 
 /**
  *  @brief Return the version of this package.

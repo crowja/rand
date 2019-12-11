@@ -51,7 +51,8 @@ test_constr(void)
 
    z = rand_new();
    ASSERT("Constructor test", z);
-   rand_free(z);
+   rand_free(&z);
+   ASSERT_EQUALS(NULL,z);
 }
 
 static void
@@ -68,7 +69,8 @@ test_uniform(void)
    ASSERT("", count < 0.6 * n);
    ASSERT("", count > 0.4 * n);
 
-   rand_free(z);
+   rand_free(&z);
+   ASSERT_EQUALS(NULL,z);
 }
 
 static void
@@ -134,10 +136,11 @@ test_normal_1(void)
    ASSERT(NULL, count8 < 0.126 * n);
    ASSERT(NULL, count8 > 0.124 * n);
 
-   rand_free(z);
+   rand_free(&z);
+   ASSERT_EQUALS(NULL,z);
 }
 
-#if 0                                            /* 11 yy */
+#if 0                                            /* 12 yy */
 static void
 test_stub(void)
 {
@@ -147,7 +150,8 @@ test_stub(void)
 
    z = rand_new();
    ASSERT("Constructor test", z);
-   rand_free(z);
+   rand_free(&z);
+   ASSERT_EQUALS(NULL,z);
 }
 #endif
 
