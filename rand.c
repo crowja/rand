@@ -2,9 +2,8 @@
  *  @file rand.c
  *  @version 0.1.0-dev0
  *  @date Wed Dec  4 09:32:46 CST 2019
- *  @copyright %COPYRIGHT%
- *  @brief FIXME
- *  @details FIXME
+ *  @copyright 2020 John A. Crow <crowja@gmail.com>
+ *  @license Unlicense <http://unlicense.org/>
  */
 
 #include <stdlib.h>
