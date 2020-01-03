@@ -1,6 +1,6 @@
 /**
  *  @file rand.c
- *  @version 0.1.0-dev0
+ *  @version 0.2.0-dev0
  *  @date Wed Dec  4 09:32:46 CST 2019
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
@@ -126,7 +126,7 @@ rand_free(struct rand **pp)
 const char *
 rand_version(void)
 {
-   return "0.1.0-dev0";
+   return "0.2.0-dev0";
 }
 
 void
