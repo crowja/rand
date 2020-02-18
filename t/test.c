@@ -3,56 +3,18 @@
 #include <string.h>
 #include "rand.h"
 #include "t/tinytest.h"
-
-#ifdef  _COLOR_CODE
-#undef  _COLOR_CODE
-#endif
-#define _COLOR_CODE       0x1B
-
-#ifdef  _COLOR_RED
-#undef  _COLOR_RED
-#endif
-#define _COLOR_RED        "[1;31m"
-
-#ifdef  _COLOR_GREEN
-#undef  _COLOR_GREEN
-#endif
-#define _COLOR_GREEN      "[1;32m"
-
-#ifdef  _COLOR_YELLOW
-#undef  _COLOR_YELLOW
-#endif
-#define _COLOR_YELLOW     "[1;33m"
-
-#ifdef  _COLOR_RESET
-#undef  _COLOR_RESET
-#endif
-#define _COLOR_RESET      "[0m"
-
-
-static void
-_printf_test_name(char *name, char *info)
-{
-   printf("%c%s%s%c%s", _COLOR_CODE, _COLOR_YELLOW, name, _COLOR_CODE, _COLOR_RESET);
-
-   if (NULL != info)
-      printf(" [%s]\n", info);
-   else
-      printf("\n");
-}
-
+#include "t/tinyhelp.h"
 
 static void
 test_constr(void)
 {
    struct rand *z;
 
-   _printf_test_name("test_constr()", "rand_new, rand_free");
-
+   fprintf_test_info(stdout, "test_constr", "rand_new, rand_free");
    z = rand_new();
    ASSERT("Constructor test", z);
    rand_free(&z);
-   ASSERT_EQUALS(NULL,z);
+   ASSERT_EQUALS(NULL, z);
 }
 
 static void
@@ -62,15 +24,15 @@ test_uniform(void)
    unsigned    i, n = 100000;
    unsigned    count = 0;
 
+   fprintf_test_info(stdout, "test_uniform", "rand_new, rand_free");
    for (i = 0; i < n; i++)
       if (rand_uniform(z) < 0.5)
          count += 1;
-
    ASSERT("", count < 0.6 * n);
    ASSERT("", count > 0.4 * n);
 
    rand_free(&z);
-   ASSERT_EQUALS(NULL,z);
+   ASSERT_EQUALS(NULL, z);
 }
 
 static void
@@ -95,7 +57,7 @@ test_normal_1(void)
    double      cut7 = -cut1;
    double      x;
 
-   _printf_test_name("test_normal_1()", "rand_normal");
+   fprintf_test_info(stderr, "test_normal_1", "rand_normal");
 
    z = rand_new();
 
@@ -135,19 +97,17 @@ test_normal_1(void)
    ASSERT(NULL, count7 > 0.124 * n);
    ASSERT(NULL, count8 < 0.126 * n);
    ASSERT(NULL, count8 > 0.124 * n);
-
    rand_free(&z);
    ASSERT_EQUALS(NULL,z);
 }
 
-#if 0                                            /* 12 yy */
+#if 0                                            /* 11 yy */
 static void
 test_stub(void)
 {
    struct rand *z;
 
-   _printf_test_name("test_stub()", NULL);
-
+   fprintf_test_info(stdout, "test_stub", NULL);
    z = rand_new();
    ASSERT("Constructor test", z);
    rand_free(&z);
@@ -164,6 +124,5 @@ main(void)
    RUN(test_constr);
    RUN(test_uniform);
    RUN(test_normal_1);
-
    return TEST_REPORT();
 }
